@@ -10,87 +10,48 @@
         @endif
     <div class="panel panel-default">
  
-        <div class="panel-heading"><h3>Cadastre o imóvel</h3></div>
+        <div class="panel-heading"><h3>Cadastre o produto</h3></div>
         <div class="panel-body">
  
-    <form method="post" action="{{route ('imoveis.store')}}">
+    <form method="post" action="{{route ('produtos.store')}}">
         {{ csrf_field() }}
-        <h4>Dados do imóvel</h4>
+        <h4>Dados do produto</h4>
+ 
         <hr>
         <div class="form-group">
             <label for="descricao">Descrição</label>
             <input type="text" class="form-control" placeholder="Descrição" name="descricao" required>
         </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="form-group">
                     <label for="preco">Preço</label>
                     <input type="text" class="form-control" placeholder="Preço" name="preco" required>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="form-group">
-                    <label for="qtdQuartos">Quantidade de Quartos</label>
-                    <input type="number" class="form-control" placeholder="Quantidade de Quartos" required name="qtdQuartos">
+                    <label for="qtdQuartos">Cor</label>
+                    <input type="text" class="form-control" placeholder="Cor" required name="cor">
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="form-group">
-                    <label for="tipo">Tipo do imóvel</label>
-                    <select class="form-control" name="tipo" required>
-                        <option>Apartamento</option>
-                        <option>Casa</option>
-                        <option>Kitnet</option>
-                    </select>
+                    <label for="qtdQuartos">Peso</label>
+                    <input type="text" class="form-control" placeholder="Peso" required name="peso">
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="qtdQuartos">Finalidade do imóvel</label>
-                    <select class="form-control" name="finalidade" required>
-                        <option>Venda</option>
-                        <option>Locação</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-        <h4>Endereço</h4>
+        </div>   
+        <h4>Marca</h4>
         <hr>
- 
-            <div class="form-group">
-                <label for="logradouroEndereco">Logradouro</label>
-                <input type="text" class="form-control" placeholder="Logradouro" required name="logradouroEndereco">
-            </div>
-        <div class="row">
-            <div class="col-md-10">
-                <div class="form-group">
-                    <label for="bairroEndereco">Bairro</label>
-                    <input type="text" class="form-control" placeholder="Bairro" required name="bairroEndereco">
-                </div>
-            </div>
-            <div class="col-md-2">
-                <div class="form-group">
-                    <label for="numero">Número</label>
-                    <input type="number" class="form-control" placeholder="Número" required name="numeroEndereco">
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="cidadeEndereco">Cidade</label>
-                    <input type="text" class="form-control" placeholder="Cidade" required name="cidadeEndereco">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="cepEndereco">CEP</label>
-                    <input type="text" class="form-control" placeholder="CEP" required name="cepEndereco">
-                </div>
-            </div>
-        </div>
+        <div class="form-group">
+            <label for="marca_id">Selecione a marca deste produto</label>
+            <select class="form-control" name="marca_id" required>
+            @foreach($marcas as $marca)            
+                <option value="{{$marca->id}}">{{$marca->nome}}</option>            
+            @endforeach
+            </select>
+        </div>     
         <a href="{{ url()->previous() }}" class="btn btn-default">Voltar</a>
         <button type="submit" class="btn btn-primary">Cadastrar</button>
     </form>

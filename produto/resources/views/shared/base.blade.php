@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
  
-        <title>Administração de Imóveis</title>
+        <title>Administração de Produtos</title>
  
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -26,14 +26,12 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Início</a>
+                    <a class="navbar-brand" href="#">Administração de Produtos</a>
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a href="{{route('imoveis.index')}}">Todos</a></li>
-                        <li><a href="{{route('imoveis.index', 'tipo=apartamento')}}">Apartamentos</a></li>
-                        <li><a href="{{route('imoveis.index', 'tipo=casa')}}">Casas</a></li>
-                        <li><a href="{{route('imoveis.index', 'tipo=kitnet')}}">Kitnet</a></li>
+                        <li><a href="{{route('marcas.index')}}">Marcas</a></li>
+                        <li><a href="{{route('produtos.index')}}">Produtos</a></li>
                     </ul>
                 </div>
             </div>

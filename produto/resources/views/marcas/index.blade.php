@@ -1,14 +1,12 @@
 @extends('shared.base')
-
 @section('content')
-
-<div class="panel panel-default">    
-        <div class="panel-heading">Lista de Imóveis</div>
-        <form method="GET" action="{{route('imoveis.index', 'buscar' )}}">
+    <div class="panel panel-default">    
+        <div class="panel-heading">Lista de Marcas</div>
+        <form method="GET" action="{{route('marcas.index', 'buscar' )}}">
         <div class="row">
             <div class="col-md-12">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Digite o nome da cidade" name="buscar">
+                    <input type="text" class="form-control" placeholder="Digite o nome da marca" name="buscar">
                     <span class="input-group-btn">
                         <button class="btn btn-default" type="submit">Pesquisar</button>
                     </span>
@@ -21,26 +19,20 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th>Descrição</th>
-                            <th>Cidade</th>
-                            <th>Preço</th>
-                            <th>Finalidade</th>
-                            <th>Tipo</th>
+                            <th>Nome</th>
+                            <th>Produtos</th>
                             <th>Ações</th>
                         </tr>
                     </thead>            
                     <tbody>            
-                        @foreach($imoveis as $imovel)
+                        @foreach($marcas as $marca)
                             <tr>
-                                <td>{{$imovel->descricao}}</td>
-                                <td>{{$imovel->cidadeEndereco}}</td>
-                                <td>{{$imovel->preco}}</td>
-                                <td>{{$imovel->finalidade}}</td>
-                                <td>{{$imovel->tipo}}</td>
+                                <td>{{$marca->nome}}</td>
+                                <td><a href="{{route('marcas.produtos', $marca->id)}}">Listar Produtos</a></td>
                                 <td>
-                                    <a href="{{route('imoveis.edit', $imovel->id)}}"><i class="glyphicon glyphicon-pencil"></i></a>
-                                    <a href="{{route('imoveis.remove', $imovel->id)}}"><i class="glyphicon glyphicon-trash"></i></a>
-                                    <a href="{{route('imoveis.show', $imovel->id)}}"><i class="glyphicon glyphicon-zoom-in"></i></a>
+                                    <a href="{{route('marcas.edit', $marca->id)}}"><i class="glyphicon glyphicon-pencil"></i></a>
+                                    <a href="{{route('marcas.remove', $marca->id)}}"><i class="glyphicon glyphicon-trash"></i></a>
+                                    <a href="{{route('marcas.show', $marca->id)}}"><i class="glyphicon glyphicon-zoom-in"></i></a>
                                 </td>                                
                             </tr>                         
                         @endforeach                                
@@ -49,8 +41,8 @@
             </div> 
         </div>
         <div align="center" class="row">
-            {{ $imoveis->links() }}
+            {{ $marcas->links() }}
         </div>
     </div>
-    <a href="{{route('imoveis.create')}}"><button class="btn btn-primary">Adicionar</button></a>
+    <a href="{{route('marcas.create')}}"><button class="btn btn-primary">Adicionar</button></a>
 @endsection
